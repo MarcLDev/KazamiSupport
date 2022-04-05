@@ -27,11 +27,9 @@ process.on('uncaughtExceptionMonitor', (error, origin) => {
 
 
 //---------Connecting To Mongoose---------\\
-mongoose.set('useCreateIndex', true)
 mongoose.connect(`mongodb+srv://Kazami:${mdbp}@kazamicluster01a.byh8b.mongodb.net/Data`, {
     useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useFindAndMofify: false
+    useNewUrlParser: true
 }).then(console.log('--- M O N G O  C O N N E C T E D ---'))
 
 //---------Dashboard---------\\
@@ -115,3 +113,6 @@ client.commands = new Discord.Collection();
 client.slashCommands = new Discord.Collection();
 require("./handler")(client);
 module.exports = client;
+
+//--------Login--------\\
+client.login(myToken);
