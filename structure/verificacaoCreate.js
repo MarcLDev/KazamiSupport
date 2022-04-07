@@ -62,12 +62,9 @@ client.on("interactionCreate", async (interaction) => {
                         .setColor("#FF0400")
                     ]}).then(msg => {setTimeout(() => msg.delete(), 10000)})
                 })
-
             }catch(err){}
         })
-
     }catch(err){}
-
 })
 
 function makeCaptcha(length){
