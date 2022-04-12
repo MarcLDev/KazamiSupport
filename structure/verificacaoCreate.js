@@ -11,14 +11,8 @@ client.on("interactionCreate", async (interaction) => {
     if(interaction.member.roles.cache.get(cargo.id)) return interaction.reply({ content: `\\❌ Você já está verificado no servidor.`, ephemeral: true })
 
     try{
+
         var captchaResult = makeCaptcha(5);
-        const { CaptchaGenerator } = require("captcha-canvas");
-        const captcha = new CaptchaGenerator()
-            .setDimension(150, 450)
-            .setCaptcha({text: captchaResult, size: 60, color: "#FFFFFF"})
-            .setDecoy({opacity: 0.5})
-            .setTrace({color: "#FFFFFF"})
-        const captchaImg = captcha.generateSync();
 
         const { createCanvas, loadImage } = require('canvas')
         const canvas = createCanvas(450, 150)
@@ -62,9 +56,9 @@ client.on("interactionCreate", async (interaction) => {
                         .setColor("#FF0400")
                     ]}).then(msg => {setTimeout(() => msg.delete(), 10000)})
                 })
-            }catch(err){}
+            }catch(err){console.log(err)}
         })
-    }catch(err){}
+    }catch(err){console.log(err)}
 })
 
 function makeCaptcha(length){
