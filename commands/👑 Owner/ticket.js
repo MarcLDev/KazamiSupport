@@ -18,14 +18,13 @@ module.exports =  {
     run: async (client, interaction, args) => { 
 
         const canal = interaction.options.getChannel('canal') || interaction.channel;
-
         let embed = new Discord.MessageEmbed()
             .setColor(colors.gold)
             .setImage("https://cdn.discordapp.com/attachments/953939991514447942/957711149879668866/unknown-1.png")
             .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
             .setFooter("Aperte o botão abaixo para abrir o ticket!")
             .setTimestamp()
-            .setDescription(`<:2167_youvebeengnomed:752362203234959462> **Sobre:**\nAbra um **Ticket** para obter Support no servidor\n\n**Descrição:**\nPor favor seja bem claro em sua dúvida para ter um support melhor!`);
+            .setDescription(`Seja bem-vindo(a) ao suporte exclusivo do Kazami! \nApós clicar na categoria será criado um chat privado com a nossa equipe, e estaremos prontos e dispostos á atender você! \n\n**Reaja de acordo com seu problema ou dúvida:**\n:shopping_cart: ・ Financeiro.\n:telephone_receiver: ・ Suporte.\n:hammer: ・ Reportar bugs.\n:rotating_light: ・ Revisão.\n:mag_right: ・ Outros`);
 
         let botao = new Discord.MessageActionRow()
         .addComponents(
