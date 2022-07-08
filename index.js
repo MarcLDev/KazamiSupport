@@ -5,8 +5,8 @@ const colors = require('./assets/colors.json');
 const mongoose = require('mongoose');
 const express = require('express');
 
-const { Interface } = require("readline");
 const app = express();
+const routes = require('./routes/');
 
 //---------Anti Crash---------\\
 process.on('multipleResolves', (type, reason, promise) => {
@@ -22,18 +22,15 @@ process.on('uncaughtExceptionMonitor', (error, origin) => {
     console.log(`🚫 Erro Detectado:\n\n` + error, origin)
 });
 
-//--------Not logged in--------\\
-app.get('/', (req, res) => {
-    res.sendStatus(403);
-})
-
 //--------Logged in--------\\
 client.on('ready', () => {
     console.log('Kazami Support Bot is now logged in!');
-    app.get('/', (req, res) => {
-        res.sendStatus(200);
-    })
 })
+app.get('/', (req, res) => {
+    res.sendStatus(200);
+})
+app.listen(process.env.PORT);
+app.use( '/api', routes );
 
 //---------Connecting To Mongoose---------\\
 mongoose.connect(`mongodb+srv://Kazami:${process.env['mongoosepassword']}@kazamicluster01a.byh8b.mongodb.net/Data`, {
@@ -52,4 +49,4 @@ require("./handler")(client);
 module.exports = client;
 
 //--------Login--------\\
-client.login(myToken);
+client.login(process.env['token']);

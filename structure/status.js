@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ intents: 32767 })
-const config = require("../config.json");
+const config = require("../assets/config.json");
 const db = require("quick.db");
 
 module.exports = function (client) {
