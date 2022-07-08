@@ -29,8 +29,6 @@ client.on('ready', () => {
 app.get('/', (req, res) => {
     res.sendStatus(200);
 })
-app.listen(process.env.PORT);
-app.use( '/api', routes );
 
 //---------Connecting To Mongoose---------\\
 mongoose.connect(`mongodb+srv://Kazami:${process.env['mongoosepassword']}@kazamicluster01a.byh8b.mongodb.net/Data`, {
