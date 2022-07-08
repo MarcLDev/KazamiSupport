@@ -7,8 +7,8 @@ module.exports = function (client) {
   client.on("ready", () => {
     setInterval(async function(){
       var activities = [
-        `🙋🏻‍♂️ Opa eu sou o Kazami, é muito bom te conhecer!`, //Kazami Introduction
-        `Você sabia que eu também sou uma AI 🧠 para conversar?` //Ai
+        `🙋🏻‍♂️ Opa eu sou o Suporte do Kazami, é muito bom te conhecer!`, //Kazami Introduction
+        `Caso precise de alguma ajuda nos comunique através de um ticket!`
       ]
       db.set('activities', activities)
     }, 2500)
