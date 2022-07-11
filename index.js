@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const express = require('express');
 
 const app = express();
-const routes = require('./routes/');
 
 //---------Anti Crash---------\\
 process.on('multipleResolves', (type, reason, promise) => {
@@ -29,6 +28,7 @@ client.on('ready', () => {
 app.get('/', (req, res) => {
     res.sendStatus(200);
 })
+app.listen(process.env.PORT);
 
 //---------Connecting To Mongoose---------\\
 mongoose.connect(`mongodb+srv://Kazami:${process.env['mongoosepassword']}@kazamicluster01a.byh8b.mongodb.net/Data`, {

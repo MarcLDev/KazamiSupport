@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const colors = require("../../assets/colors.json");
 
 module.exports =  {
-    name: "ticket",
+    name: "setverificar",
     description: "NULL",
     type: "CHAT_INPUT",
     category: 'Owner',
@@ -20,16 +20,15 @@ module.exports =  {
         let embed = new Discord.MessageEmbed()
             .setColor(colors.gold)
             .setTitle('Você é realmente um humano?? 🤔')
-            .setDescription(`Calma ai, para conseguir o cargo de usuário verificado no servidor você tem que provar ser um humano, abaixo da mensagem há um botão com link de verificação do Kazami, basta apenas clicar e autorizar o kazami para verificar-se!
-            \n**Aviso:** \nAo autorizar o kazami pelo link ele irá **apenas** receber seu ID no servidor para que possamos adicionar o cargo \<@&752394041806815322>! \nNenhuma outra informação é obtida através de verificação do kazami!
-            \n**Instruções:** \nClique no botão abaixo e você será redirecionado ao site do discord para autorizar o kazami, após alguns segundos seu cargo será automaticamente adicionado no servidor. Quaisquer problemas com o sistema informe nossa equipe de suporte!`)
+            .setDescription('Calma lá, antes de acessar o servidor você tem passar por uma verificação. Clique no botão abaixo para começar a verificação!')
+            .setImage('https://cdn.discordapp.com/attachments/752355234063450240/995827441190846595/verification.png')
         let button = new Discord.MessageActionRow()
         .addComponents(
             new Discord.MessageButton()
                 .setEmoji('🤔')
-                .setStyle('LINK')
+                .setStyle('SUCCESS')
                 .setLabel('Verificar')
-                .setURL('')
+                .setCustomId('Verificar')
                 .setDisabled(false)
         )
 
